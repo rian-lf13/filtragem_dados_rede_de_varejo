@@ -1,30 +1,28 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns 
-import datetime as dt
+from analise_vendas import AnaliseVendas
 
+def menu():
+    analise= AnaliseVendas('dados/dataset.csv')
 
-dados = pd.read_csv('dados.csv')
-dados.shape
-dados.head()
-dados.tail()
+    while True:
+        print('''
+        \t-[MENU DE ANÁLISE]
+        \n[1] - Explorar dados
+        \n[2] - Maior venda em "Office Supplies"
+        \n[3] - Total de vendas por Data
+        \n[4] - Total de vendas por Estado
+        \n[5] - 10 cidades com maior venda
+        \n[6] - Segmento com maior venda
+        \n[7] - Total de vendas por Segmento e Ano
+        \n[s] - Sair
+        ''')
+        escolha = input('Escolha uma opção: ')
 
+        if escolha == '1':
+            analise.total_vendas_estado(salvar=True)
+        elif escolha == 'S' or escolha == 's':
+            break
+        else:
+            print('Opção inválida')
 
-# AnáliseExplporatória
-dados.columns
-dados.dtypes
-dados['Valor_Venda'].descriibe()
-dados[dados.duplicated()]
-dados.isnull().sum()
-dados.head()
-
-#Filtrando os dados (Maior valor de venda de produtos "Office Supplies")
-
-officesuplies_maiorvenda = dados[dados['Categoria'] == 'Office Supplies']
-office_supplies_total = officesuplies_maiorvenda.groupby('Cidade')('Valor_Venda').sum()
-cidade_maior_ven_ofsup = office_supplies_total.idxmax()
-print(f'A cidade com maior venda de produtos "Office Supplies" é: {cidade_maior_ven_ofsup}')
-office_supplies_total.sort_values(ascending=False)
-
-
+if __name__ == '__main__':
+    menu()
