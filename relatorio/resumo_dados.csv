@@ -1,0 +1,16 @@
+,Tipo,Valores Nulos
+ID_Pedido,object,0
+Data_Pedido,datetime64[ns],0
+ID_Cliente,object,0
+Segmento,object,0
+Pais,object,0
+Cidade,object,0
+Estado,object,0
+ID_Produto,object,0
+Categoria,object,0
+SubCategoria,object,0
+Valor_Venda,float64,0
+Ano,int32,0
+
+,count,mean,std,min,25%,50%,75%,max
+Estatísticas Descritivas,9700.0,230.4698922371134,627.5042517796065,0.444,17.248,54.272,209.9325,22638.48

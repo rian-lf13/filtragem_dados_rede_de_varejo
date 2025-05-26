@@ -3,6 +3,12 @@ from analise_vendas import AnaliseVendas
 def menu():
     analise= AnaliseVendas('dados/dataset.csv')
 
+    opcoes = {
+        '1': analise.explorar_dados,
+        '2': analise.maior_venda_off_sup,
+        '3': analise.total_vendas_datas
+    }
+
     while True:
         print('''
         \t-[MENU DE ANÁLISE]
@@ -18,7 +24,9 @@ def menu():
         escolha = input('Escolha uma opção: ')
 
         if escolha == '1':
-            analise.total_vendas_estado(salvar=True)
+            analise.explorar_dados(salvar=True)
+        elif escolha == '2':
+            analise.maior_venda_off_sup(salvar=True)
         elif escolha == 'S' or escolha == 's':
             break
         else:
